@@ -1,0 +1,16 @@
+# Data
+app/data/*.pdf
+app/data/*.png
+app/data/*.jpg
+
+# Environment
+.env
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# Model cache
+models_cache/

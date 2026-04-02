@@ -1,0 +1,57 @@
+services:
+  # ── FastAPI Backend (CPU, amd64) ──
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: aerospace-backend
+    platform: linux/amd64
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - huggingface-cache:/cache/huggingface
+      - ./app/data:/opt/app/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+  # ── Ingestion (one-shot, CPU) ──
+  ingest:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: aerospace-ingest
+    platform: linux/amd64
+    env_file:
+      - .env
+    volumes:
+      - huggingface-cache:/cache/huggingface
+      - ./app/data:/opt/app/app/data
+    command: ["python3", "-m", "app.ingest"]
+    profiles:
+      - ingest
+
+  # ── Streamlit Frontend ──
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: aerospace-frontend
+    platform: linux/amd64
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  huggingface-cache:

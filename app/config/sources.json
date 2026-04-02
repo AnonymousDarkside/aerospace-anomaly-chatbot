@@ -1,0 +1,22 @@
+{
+  "sources": [
+    {
+      "id": "nasa-systems-engineering",
+      "name": "NASA Systems Engineering Handbook",
+      "url": "https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf",
+      "description": "NASA's comprehensive guide to systems engineering processes and best practices for space missions."
+    },
+    {
+      "id": "faa-system-safety-handbook",
+      "name": "FAA System Safety Handbook",
+      "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/risk_management/ss_handbook/media/Chap1_1200.pdf",
+      "description": "FAA handbook chapter on system safety concepts and analysis for aerospace operations."
+    },
+    {
+      "id": "nasa-fault-management-handbook",
+      "name": "NASA Fault Management Handbook",
+      "url": "https://www.nasa.gov/wp-content/uploads/2018/09/nasa_hdbk_1002_-_fault_management_a.pdf",
+      "description": "NASA handbook covering fault management strategies, anomaly detection, and telemetry analysis for spacecraft."
+    }
+  ]
+}

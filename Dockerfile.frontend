@@ -1,0 +1,19 @@
+# ── Frontend: Streamlit (no GPU needed) ──
+FROM python:3.10-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /opt/app
+
+# Install Python deps
+COPY requirements-frontend.txt .
+RUN pip install --no-cache-dir -r requirements-frontend.txt
+
+# Copy only what the frontend needs
+COPY app/ui.py ./app/ui.py
+COPY .streamlit/ ./.streamlit/
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "app/ui.py", "--server.address", "0.0.0.0"]

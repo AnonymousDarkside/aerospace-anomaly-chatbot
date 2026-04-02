@@ -1,0 +1,30 @@
+# Git
+.git/
+.gitignore
+
+# Environment
+.env
+.env.example
+
+# Data (mounted as volume instead)
+app/data/*.pdf
+app/data/**/*.png
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Docker
+docker-compose.yml
+Dockerfile.*
+.dockerignore
+
+# Docs
+*.md
+LICENSE

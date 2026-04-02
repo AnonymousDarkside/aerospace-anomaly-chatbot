@@ -1,0 +1,34 @@
+# ── PyTorch (CPU only) ──
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.2.0
+torchvision>=0.17.0
+
+# ── Vision-Language Model / Embeddings ──
+transformers>=4.44.0
+accelerate>=0.30.0
+sentencepiece>=0.2.0
+einops>=0.8.0
+Pillow>=10.0.0
+
+# ── Vector Database ──
+qdrant-client>=1.9.0
+
+# ── PDF Processing ──
+pdf2image>=1.17.0
+PyMuPDF>=1.24.0
+
+# ── Backend API ──
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.7.0
+pydantic-settings>=2.2.0
+python-multipart>=0.0.9
+
+# ── External LLM Providers ──
+openai>=1.30.0
+google-generativeai>=0.7.0
+
+# ── Utilities ──
+python-dotenv>=1.0.0
+httpx>=0.27.0
+tqdm>=4.66.0
