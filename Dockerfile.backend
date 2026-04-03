@@ -17,8 +17,9 @@ WORKDIR /opt/app
 COPY requirements-backend.txt .
 RUN pip install --no-cache-dir -r requirements-backend.txt
 
-# Copy application code
+# Copy application code + scripts
 COPY app/ ./app/
+COPY scripts/ ./scripts/
 
 # Model cache volume mount point
 VOLUME ["/cache/huggingface"]

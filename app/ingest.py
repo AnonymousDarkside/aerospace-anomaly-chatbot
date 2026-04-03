@@ -170,6 +170,11 @@ def main():
         default=None,
         help="Ingest only the source with this ID (default: all sources)",
     )
+    parser.add_argument(
+        "--recreate-collection",
+        action="store_true",
+        help="Drop and recreate the Qdrant collection (use when embedding dim changes)",
+    )
     args = parser.parse_args()
 
     # Validate environment
@@ -180,7 +185,7 @@ def main():
         return
 
     # Ensure collection exists
-    ensure_collection()
+    ensure_collection(recreate=args.recreate_collection)
 
     # Load and process sources
     sources = load_sources(args.source_id)

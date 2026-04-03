@@ -28,22 +28,30 @@ def get_qdrant_client() -> QdrantClient:
     return _client
 
 
-def ensure_collection() -> None:
-    """Create the collection if it does not already exist."""
+def ensure_collection(recreate: bool = False) -> None:
+    """Create the collection if it does not already exist.
+    If recreate=True, drop and recreate (useful when embedding dim changes).
+    """
     settings = get_settings()
     client = get_qdrant_client()
     collections = [c.name for c in client.get_collections().collections]
-    if settings.qdrant_collection_name not in collections:
-        client.create_collection(
-            collection_name=settings.qdrant_collection_name,
-            vectors_config=VectorParams(
-                size=settings.embedding_dim,
-                distance=Distance.COSINE,
-            ),
-        )
-        print(f"[VectorStore] Created collection '{settings.qdrant_collection_name}'")
-    else:
-        print(f"[VectorStore] Collection '{settings.qdrant_collection_name}' already exists")
+
+    if settings.qdrant_collection_name in collections:
+        if recreate:
+            client.delete_collection(settings.qdrant_collection_name)
+            print(f"[VectorStore] Dropped existing collection '{settings.qdrant_collection_name}'")
+        else:
+            print(f"[VectorStore] Collection '{settings.qdrant_collection_name}' already exists")
+            return
+
+    client.create_collection(
+        collection_name=settings.qdrant_collection_name,
+        vectors_config=VectorParams(
+            size=settings.embedding_dim,
+            distance=Distance.COSINE,
+        ),
+    )
+    print(f"[VectorStore] Created collection '{settings.qdrant_collection_name}' (dim={settings.embedding_dim})")
 
 
 def upsert_page_vectors(

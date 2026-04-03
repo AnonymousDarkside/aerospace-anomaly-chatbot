@@ -1,22 +1,88 @@
 {
   "sources": [
     {
-      "id": "nasa-systems-engineering",
-      "name": "NASA Systems Engineering Handbook",
-      "url": "https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf",
-      "description": "NASA's comprehensive guide to systems engineering processes and best practices for space missions."
-    },
-    {
-      "id": "faa-system-safety-handbook",
-      "name": "FAA System Safety Handbook",
-      "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/risk_management/ss_handbook/media/Chap1_1200.pdf",
-      "description": "FAA handbook chapter on system safety concepts and analysis for aerospace operations."
+      "id": "nasa-anomaly-detection-launch-ops",
+      "name": "NASA \u2014 Anomaly Detection for Next-Gen Space Launch Ground Operations",
+      "url": "https://ntrs.nasa.gov/api/citations/20100027325/downloads/20100027325.pdf",
+      "description": "Fault Detection, Isolation, and Recovery (FDIR) system for launch control using the Inductive Monitoring System (IMS)."
     },
     {
       "id": "nasa-fault-management-handbook",
-      "name": "NASA Fault Management Handbook",
-      "url": "https://www.nasa.gov/wp-content/uploads/2018/09/nasa_hdbk_1002_-_fault_management_a.pdf",
-      "description": "NASA handbook covering fault management strategies, anomaly detection, and telemetry analysis for spacecraft."
+      "name": "NASA Fault Management Handbook (NASA-HDBK-1002 Draft)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2015/04/636372main_NASA-HDBK-1002_Draft.pdf",
+      "description": "Guidelines for fault management in flight systems \u2014 fault detection, isolation, diagnosis, and response."
+    },
+    {
+      "id": "nasa-systems-engineering-handbook",
+      "name": "NASA Systems Engineering Handbook (SP-2016-6105 Rev2)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf",
+      "description": "Full lifecycle systems engineering \u2014 requirements, design, integration, verification, and operations."
+    },
+    {
+      "id": "nasa-system-safety-handbook",
+      "name": "NASA System Safety Handbook (NASA/SP-2010-580)",
+      "url": "https://ntrs.nasa.gov/api/citations/20120003291/downloads/20120003291.pdf",
+      "description": "Hazard analysis, risk assessment, and safety assurance for space systems across all mission phases."
+    },
+    {
+      "id": "nasa-mars-climate-orbiter-mishap",
+      "name": "Mars Climate Orbiter Mishap Investigation Board Phase I Report",
+      "url": "https://llis.nasa.gov/llis_lib/pdf/1009464main1_0641-mr.pdf",
+      "description": "Investigation into loss of Mars Climate Orbiter due to metric/imperial unit conversion failure."
+    },
+    {
+      "id": "nasa-mars-polar-lander-failure",
+      "name": "Loss of Mars Polar Lander and Deep Space 2 Missions Report",
+      "url": "https://ntrs.nasa.gov/api/citations/20000061966/downloads/20000061966.pdf",
+      "description": "NASA investigation \u2014 failure modes, fault trees, and recommendations for spacecraft testing."
+    },
+    {
+      "id": "nasa-fault-mgmt-principles",
+      "name": "Development of NASA Fault Management Handbook (JHUAPL)",
+      "url": "https://flightsoftware.jhuapl.edu/files/2011/FSW11_Fesq.pdf",
+      "description": "Fault management principles, spacecraft autonomy, and fault detection/response architecture."
+    },
+    {
+      "id": "spacex-falcon-users-guide",
+      "name": "SpaceX Falcon Payload Users Guide (2025)",
+      "url": "https://www.spacex.com/assets/media/falcon-users-guide-2025-05-09.pdf",
+      "description": "Falcon 9/Heavy payload interfaces, environments, spacecraft operations, and mission integration."
+    },
+    {
+      "id": "isro-annual-report-2023",
+      "name": "ISRO Annual Report 2022-2023",
+      "url": "https://www.isro.gov.in/media_isro/pdf/AnnualReport/Annual_Report_2022_23_Eng.pdf",
+      "description": "ISRO annual report \u2014 satellite missions, launch vehicle operations, telemetry infrastructure."
+    },
+    {
+      "id": "jaxa-spacecraft-telemetry-standard",
+      "name": "JAXA Spacecraft Information Base Definition (Telemetry & Telecommand)",
+      "url": "https://sma.jaxa.jp/TechDoc/Docs/JAXA-JERG-2-700-TP004.pdf",
+      "description": "JAXA technical standard for telemetry and telecommand value processing and monitoring."
+    },
+    {
+      "id": "jaxa-epsilon-users-manual",
+      "name": "JAXA Epsilon Launch Vehicle Users Manual",
+      "url": "https://global.jaxa.jp/projects/rockets/epsilon/pdf/EpsilonUsersManual_e.pdf",
+      "description": "Epsilon launch vehicle \u2014 payload interfaces, telemetry systems, flight operations."
+    },
+    {
+      "id": "esa-ecss-ground-systems",
+      "name": "ESA/ECSS Ground Systems and Operations Standard (ECSS-E-ST-70C)",
+      "url": "https://eop-cfi.esa.int/Repo/PUBLIC/DOCUMENTATION/SYSTEM_SUPPORT_DOCS/ECSS%20Standards%20for%20Ground%20Segments/ECSS-E-ST-70C-Ground%20systems.pdf",
+      "description": "European space standard \u2014 telemetry, telecommand, mission control, spacecraft operations interfaces."
+    },
+    {
+      "id": "faa-flight-safety-analysis",
+      "name": "FAA Flight Safety Analysis Handbook",
+      "url": "https://www.faa.gov/about/office_org/headquarters_offices/ast/media/Flight_Safety_Analysis_Handbook_final_9_2011v1.pdf",
+      "description": "Flight safety analysis of launch and reentry vehicles \u2014 risk assessment, debris analysis, failure modeling."
+    },
+    {
+      "id": "faa-ato-safety-management",
+      "name": "FAA Air Traffic Organization Safety Management System Manual",
+      "url": "https://www.faa.gov/air_traffic/publications/media/ATO-SMS-Manual.pdf",
+      "description": "Safety risk management processes, safety assurance, and anomaly reporting."
     }
   ]
 }

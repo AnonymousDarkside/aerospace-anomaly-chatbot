@@ -1,7 +1,5 @@
-# Data
-app/data/*.pdf
-app/data/*.png
-app/data/*.jpg
+# Data (downloaded PDFs + extracted images)
+app/data/
 
 # Environment
 .env

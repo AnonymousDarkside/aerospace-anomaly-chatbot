@@ -8,10 +8,10 @@ class Settings(BaseSettings):
     qdrant_api_key: str = ""
     qdrant_collection_name: str = "aerospace_docs"
 
-    # ── VLM Configuration (jina-clip-v2: unified text + image embeddings) ──
-    vlm_model_name: str = "jinaai/jina-clip-v2"
+    # ── CLIP Embedding Model ──
+    vlm_model_name: str = "openai/clip-vit-base-patch32"
     vlm_device: str = "cpu"
-    embedding_dim: int = 1024
+    embedding_dim: int = 512
 
     # ── Paths ──
     data_dir: str = "app/data"
@@ -20,7 +20,6 @@ class Settings(BaseSettings):
     # ── Ingestion ──
     pdf_dpi: int = 200
     batch_size: int = 2
-    vlm_dtype: str = "float32"
 
     # ── API ──
     api_host: str = "0.0.0.0"
