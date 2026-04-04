@@ -9,8 +9,8 @@ import google.generativeai as genai
 from openai import OpenAI
 
 DEFAULT_MODELS = {
-    "openrouter": "google/gemini-2.0-flash-001",
-    "google": "gemini-2.0-flash",
+    "openrouter": "google/gemini-3-flash-preview",
+    "google": "gemini-3-flash-preview",
 }
 
 SYSTEM_PROMPT = (
