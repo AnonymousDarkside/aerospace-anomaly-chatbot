@@ -1,5 +1,5 @@
 # Pull request test
-
+# SemVer test
 # ── Frontend: Streamlit (no GPU needed) ──
 FROM python:3.10-slim
 

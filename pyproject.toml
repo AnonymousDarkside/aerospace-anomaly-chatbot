@@ -1,0 +1,4 @@
+[tool.semantic_release]
+version_variables = ["my_awesome_project/__init__.py:__version__"]
+version_toml = ["pyproject.toml:project.version"]
+commit_parser = "angular"
