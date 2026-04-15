@@ -7,7 +7,7 @@ on:
 # MUST HAVE: These permissions are required to request the OIDC JWT
 permissions:
   id-token: write
-  contents: read
+  contents: write # Needed to push Git tags
 
 jobs:
   deploy:
@@ -15,6 +15,15 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Needed to push tags back to the repo
+
+      - name: Create and Push Git Tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -f test
+          git push -f origin test
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -32,8 +41,13 @@ jobs:
           ECR_REPOSITORY: aerochat-backend
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -f Dockerfile.backend -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build -f Dockerfile.backend \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:latest \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:github-oidc .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:github-oidc
 
       - name: Build, Tag, and Push Frontend Image
         env:
@@ -41,5 +55,10 @@ jobs:
           ECR_REPOSITORY: aerochat-frontend
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -f Dockerfile.frontend -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build -f Dockerfile.frontend \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:latest \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:github-oidc .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:github-oidc
