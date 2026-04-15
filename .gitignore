@@ -12,3 +12,10 @@ __pycache__/
 
 # Model cache
 models_cache/
+
+# Worktrees
+.worktrees/
+
+# AWS
+aws/
+awscliv2.zip
